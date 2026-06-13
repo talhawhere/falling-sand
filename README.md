@@ -1,6 +1,6 @@
 # Falling Sand Simulation
 
-A real-time falling-sand simulation in C++ using raylib, inspired by wondering how games like Minecraft simulate falling sand and flowing water.
+A real-time falling-sand simulation in C++ using raylib, inspired by wondering how games like Minecraft simulate falling sand and flowing water through 'Cellular Automata'
 
 ![demo](demo.gif)
 
