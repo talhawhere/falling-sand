@@ -31,20 +31,20 @@ bool isEmpty(int x, int y){
 void update(){
     for (int y = ROWS - 1; y >= 0; y--){
         for (int x = 0; x < COLS; x++){
-            if(grid[idx(x, y)].type != Element :: Sand) continue;
+            if(grid[idx(x, y)].type != Element::Sand) continue;
 
-            if (isEmpty(x, y + 1)) { //checks if there is space below
-                swap(grid[idx(x, y)], grid[idx(x , y + 1)]);
+            if (isEmpty(x, y + 1)){
+                swap(grid[idx(x, y)], grid[idx(x, y + 1)]);
             }
-
-            else if (isEmpty(x + 1, y + 1)) { //checks if there is space below + right
-                swap(grid[idx(x, y)], grid[idx(x + 1, y + 1)]);
+            else {
+                int dir = (GetRandomValue(0, 1) == 0) ? -1 : 1;
+                if (isEmpty(x + dir, y + 1)){
+                    swap(grid[idx(x, y)], grid[idx(x + dir, y + 1)]);
+                }
+                else if (isEmpty(x - dir, y + 1)){
+                    swap(grid[idx(x, y)], grid[idx(x - dir, y + 1)]);
+                }
             }
-
-            else if (isEmpty(x - 1, y + 1)) { //checks if there is space below + left
-                swap(grid[idx(x, y)], grid[idx(x - 1, y + 1)]);
-            }
-            
         }
     }
 }
